@@ -1,0 +1,27 @@
+<table class="table table-dark table-striped text-center">
+  <thead>
+    <tr>
+      <th>NAME</th>
+      <th>LAST NAME</th>
+      <th>AGE</th>
+      <th>MAIL</th>
+      <th>LOCATIONS</th>
+      <th>PRICE</th>
+      <th>ACTIONS</th>
+    </tr>
+  </thead>
+  <tbody *ngFor="let user of users">
+    <tr
+      app-user-detail
+      [get-user]="user"
+      (send-delete-user)="sendDeleteUser($event)"
+    ></tr>
+  </tbody>
+</table>
+<div class="row d-flex justify-content-end mt-5">
+  <div class="col-4 text-end me-1">
+    <button class="btn btn-danger" type="button" (click)="passOpenForm()">
+      <fa-icon [icon]="faOpen"></fa-icon>
+    </button>
+  </div>
+</div>
