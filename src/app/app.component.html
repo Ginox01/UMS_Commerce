@@ -8,11 +8,13 @@
     <app-database
       (send-open-form)="openForm()"
       (send-delete-user)="userDelete($event)"
+      (pass-update-user)="updateUser($event)"
     ></app-database>
     <br />
     <app-form-user
       *ngIf="formOpen"
       (send-close-form)="closeForm()"
+      [get-user]="user"
     ></app-form-user>
   </div>
 </div>

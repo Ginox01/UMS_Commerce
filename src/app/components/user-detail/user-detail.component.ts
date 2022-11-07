@@ -15,7 +15,6 @@ export class UserDetailComponent implements OnInit {
   @Input('get-user') declare user: UserInterface;
   @Output('send-delete-user') onDeleteUser = new EventEmitter();
   @Output('pass-update-user') onPassUpdateUser = new EventEmitter();
-  //++++++++++DA QUI +++++++++++
 
   faTrash = faTrash;
   faPen = faPen;
@@ -27,5 +26,9 @@ export class UserDetailComponent implements OnInit {
 
   passDeleteUser() {
     this.onDeleteUser.emit(this.user);
+  }
+
+  passUpdateUser(){
+    this.onPassUpdateUser.emit(this.user)
   }
 }

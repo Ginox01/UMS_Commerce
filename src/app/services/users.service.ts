@@ -47,4 +47,15 @@ export class UsersService {
       this.users.splice(index, 1);
     }
   }
+
+  updateUser(user:UserInterface){
+    const idx = this.users.findIndex(user => user.id == user.id);
+    if(idx){
+      this.users[idx] = user
+    }
+  }
+
+  newUser(user:UserInterface){
+    this.users.splice(0,0,user)
+  }
 }

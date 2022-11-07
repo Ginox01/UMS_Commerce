@@ -13,6 +13,7 @@ export class DatabaseComponent implements OnInit {
   faOpen = faPlayCircle;
   @Output('send-open-form') onOpenForm = new EventEmitter();
   @Output('send-delete-user') onDeleteUser = new EventEmitter();
+  @Output('pass-update-user') onPassUpdateUser = new EventEmitter()
 
   constructor(private serviceUsers: UsersService) {}
 
@@ -26,5 +27,9 @@ export class DatabaseComponent implements OnInit {
 
   sendDeleteUser(user: UserInterface) {
     this.onDeleteUser.emit(user);
+  }
+
+  passUpdateUser(user:UserInterface){
+    this.onPassUpdateUser.emit(user)
   }
 }

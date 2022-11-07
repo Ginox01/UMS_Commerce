@@ -1,3 +1,4 @@
+import { User } from 'src/app/classes/user';
 import { UsersService } from './services/users.service';
 import { UserInterface } from './interfaces/user-interface';
 import { Component } from '@angular/core';
@@ -13,6 +14,8 @@ export class AppComponent {
 
   constructor(private serviceUsers: UsersService) {}
 
+  user = new User();
+
   openForm() {
     this.formOpen = true;
   }
@@ -22,5 +25,10 @@ export class AppComponent {
 
   userDelete(user: UserInterface) {
     this.serviceUsers.deleteUser(user);
+  }
+
+  updateUser(user:UserInterface){
+    this.user = user;
+    this.formOpen = true
   }
 }
