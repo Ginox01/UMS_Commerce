@@ -1,20 +1,10 @@
-<app-nav (send-open-form)="openForm()"></app-nav>
+<app-nav></app-nav>
 <div class="main">
   <h1 routerLink="/">{{ title | title }}</h1>
 </div>
 <br />
 <div class="row d-flex justify-content-center mt-5">
   <div class="col-10 text-center">
-    <app-database
-      (send-open-form)="openForm()"
-      (send-delete-user)="userDelete($event)"
-      (pass-update-user)="updateUser($event)"
-    ></app-database>
-    <br />
-    <app-form-user
-      *ngIf="formOpen"
-      (send-close-form)="closeForm()"
-      [get-user]="user"
-    ></app-form-user>
+    <router-outlet></router-outlet>
   </div>
 </div>

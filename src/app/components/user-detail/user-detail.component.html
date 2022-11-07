@@ -5,18 +5,13 @@
 <td>{{ user.location }}</td>
 <td>{{ user.price }}</td>
 <td>
-  <button
-    (click)="passDeleteUser()"
-    type="button"
-    class="btn btn-sm btn-danger me-1"
-  >
+  <button type="button" class="btn btn-sm btn-danger me-1">
     <fa-icon [icon]="faTrash"></fa-icon>
   </button>
   <button type="button" class="btn btn-sm btn-primary me-1">
     <fa-icon [icon]="faMoney"></fa-icon>
-    <!--PASSARE L'UTENTE AL FORM // NO ROUTER-->
   </button>
-  <button type="button" class="btn btn-sm btn-success" (click)="passUpdateUser()" >
+  <button type="button" class="btn btn-sm btn-success">
     <fa-icon [icon]="faPen"></fa-icon>
   </button>
 </td>

@@ -20,6 +20,7 @@ export class AppComponent {
     this.formOpen = true;
   }
   closeForm() {
+    this.user = new User();
     this.formOpen = false;
   }
 
@@ -27,8 +28,8 @@ export class AppComponent {
     this.serviceUsers.deleteUser(user);
   }
 
-  updateUser(user:UserInterface){
+  updateUser(user: UserInterface) {
     this.user = user;
-    this.formOpen = true
+    this.formOpen = true;
   }
 }
