@@ -10,26 +10,7 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'user manager system complex';
-  formOpen = false;
 
-  constructor(private serviceUsers: UsersService) {}
+  constructor() {}
 
-  user = new User();
-
-  openForm() {
-    this.formOpen = true;
-  }
-  closeForm() {
-    this.user = new User();
-    this.formOpen = false;
-  }
-
-  userDelete(user: UserInterface) {
-    this.serviceUsers.deleteUser(user);
-  }
-
-  updateUser(user: UserInterface) {
-    this.user = user;
-    this.formOpen = true;
-  }
 }

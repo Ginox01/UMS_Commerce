@@ -3,6 +3,7 @@ import { UsersService } from './../../services/users.service';
 import { Component, OnInit, Output, EventEmitter, Input } from '@angular/core';
 import { User } from 'src/app/classes/user';
 import { FormGroup, FormBuilder } from '@angular/forms';
+import { ActivatedRoute, Router } from '@angular/router';
 
 @Component({
   selector: 'app-form-user',
@@ -11,7 +12,7 @@ import { FormGroup, FormBuilder } from '@angular/forms';
 })
 export class FormUserComponent implements OnInit {
   @Output('send-close-form') onCloseForm = new EventEmitter();
-  @Input('get-user') user = new User();
+  declare user:any
 
   stepName = false;
   stepLastName = false;
@@ -22,28 +23,38 @@ export class FormUserComponent implements OnInit {
 
   declare form: FormGroup;
 
-  constructor(private fb: FormBuilder, private serviceUsers: UsersService) {
-    this.user = new User();
+  constructor(private fb: FormBuilder, private serviceUsers: UsersService , private router:ActivatedRoute , private route:Router) {
+    this.user = new User()
   }
 
   ngOnInit(): void {
+
+    this.user = new User()
+
+    this.router.params.subscribe((ele)=>{
+      const id = ele['id'];
+      if(id){
+        this.serviceUsers.getUser(id).subscribe((data)=>{
+        this.user = data
+        })
+      }
+    })
+
+
     this.form = this.fb.group({
-      name: [this.user.name],
-      lastName: [this.user.lastName],
-      age: [this.user.age],
-      mail: [this.user.mail],
-      price: [this.user.price],
-      location: [this.user.location],
+      name: [''],
+      lastName: [''],
+      age: [''],
+      mail: [''],
+      price: [''],
+      location: [''],
     });
 
-    this.user = new User();
   }
 
   closeTheForm() {
-    this.user = new User();
-    this.onCloseForm.emit();
+    this.route.navigateByUrl('home')
   }
-
   saveUser() {
     let name: any = document.getElementById('name');
     let lastName: any = document.getElementById('last-name');
@@ -70,10 +81,14 @@ export class FormUserComponent implements OnInit {
       this.user.price = price.value;
 
       if (this.user.id > 0) {
-        this.serviceUsers.updateUser(this.user);
+        this.serviceUsers.updateUser(this.user).subscribe(()=> {
+          this.route.navigateByUrl('home/database')
+        })
         this.closeTheForm();
       } else {
-        this.serviceUsers.newUser(this.user);
+        this.serviceUsers.newUser(this.user).subscribe(()=>{
+          this.route.navigateByUrl('home/database')
+        })
         this.closeTheForm();
       }
       this.stepName = false;

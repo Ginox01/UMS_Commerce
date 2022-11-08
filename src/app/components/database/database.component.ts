@@ -2,6 +2,7 @@ import { UserInterface } from './../../interfaces/user-interface';
 import { UsersService } from './../../services/users.service';
 import { Component, OnInit, Output, EventEmitter } from '@angular/core';
 import { faPlayCircle } from '@fortawesome/free-regular-svg-icons';
+import { Observable } from 'rxjs';
 
 @Component({
   selector: 'app-database',
@@ -9,7 +10,7 @@ import { faPlayCircle } from '@fortawesome/free-regular-svg-icons';
   styleUrls: ['./database.component.css'],
 })
 export class DatabaseComponent implements OnInit {
-  users: UserInterface[] = [];
+  declare users:any[];
   faOpen = faPlayCircle;
   @Output('send-open-form') onOpenForm = new EventEmitter();
   @Output('send-delete-user') onDeleteUser = new EventEmitter();
@@ -18,18 +19,8 @@ export class DatabaseComponent implements OnInit {
   constructor(private serviceUsers: UsersService) {}
 
   ngOnInit(): void {
-    this.users = this.serviceUsers.getUsers();
+    this.serviceUsers.getUsers()
+    .subscribe((data:any)=> this.users = data);
   }
 
-  passOpenForm() {
-    this.onOpenForm.emit();
-  }
-
-  sendDeleteUser(user: UserInterface) {
-    this.onDeleteUser.emit(user);
-  }
-
-  passUpdateUser(user:UserInterface){
-    this.onPassUpdateUser.emit(user)
-  }
 }

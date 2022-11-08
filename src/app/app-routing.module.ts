@@ -10,6 +10,8 @@ import { PageNotFoundComponent } from './components/page-not-found/page-not-foun
 import { UserDetailComponent } from './components/user-detail/user-detail.component';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { FormUserComponent } from './components/form-user/form-user.component';
+import { BasketComponent } from './components/basket/basket.component';
+
 
 const routes: Routes = [
   {
@@ -31,9 +33,18 @@ const routes: Routes = [
     component: FormUserComponent,
   },
   {
+    path:'home/:id/edit',
+    component:FormUserComponent
+  },
+  {
+    path:'home/basket',
+    component:BasketComponent
+  },
+  {
     path: '**',
     component: PageNotFoundComponent,
   },
+
 ];
 
 @NgModule({
@@ -42,6 +53,7 @@ const routes: Routes = [
     DatabaseComponent,
     UserDetailComponent,
     FormUserComponent,
+    BasketComponent,
     PageNotFoundComponent,
   ],
   imports: [

@@ -1,3 +1,4 @@
+import { UsersService } from './../../services/users.service';
 import { UserInterface } from './../../interfaces/user-interface';
 import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 import {
@@ -5,6 +6,7 @@ import {
   faPen,
   faMoneyBill1,
 } from '@fortawesome/free-solid-svg-icons';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'tr[app-user-detail]',
@@ -20,15 +22,20 @@ export class UserDetailComponent implements OnInit {
   faPen = faPen;
   faMoney = faMoneyBill1;
 
-  constructor() {}
+  constructor(private service:UsersService, private route:Router) {}
 
   ngOnInit(): void {}
 
-  passDeleteUser() {
-    this.onDeleteUser.emit(this.user);
+  deleteUserClick() {
+    let elemet:any = document.getElementById(String(this.user.id));
+    this.service.deleteUser(this.user).subscribe(()=>{
+      elemet.parentNode.removeChild(elemet)
+    })
+
   }
 
-  passUpdateUser(){
-    this.onPassUpdateUser.emit(this.user)
+  goToForm(){
+    this.route.navigateByUrl('home/' + String(this.user.id) + '/edit')
   }
+
 }

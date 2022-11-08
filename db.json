@@ -10,22 +10,22 @@
       "price": 975
     },
     {
-      "id": 2,
-      "name": "Valeria",
-      "lastName": "Marzocolli",
-      "age": 26,
-      "mail": "rosymarzy@mail.it",
-      "location": "Capurso",
-      "price": 350
+      "name": "Giorgia",
+      "lastName": "Ceresetti",
+      "age": "26",
+      "mail": "giorgia@mail.it",
+      "location": "Triggiano",
+      "price": "420",
+      "id": 4
     },
     {
-      "id": 3,
-      "name": "Maria",
-      "lastName": "Bianchi",
-      "age": 20,
-      "mail": "maria@mail.it",
-      "location": "Bari",
-      "price": 150
+      "id": 5,
+      "name": "Letizia",
+      "lastName": "De Gennaro",
+      "age": "28",
+      "mail": "leti@mail.it",
+      "location": "Milano",
+      "price": "100"
     }
   ]
 }

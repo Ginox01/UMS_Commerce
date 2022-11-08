@@ -1,61 +1,33 @@
 import { UserInterface } from './../interfaces/user-interface';
 import { Injectable } from '@angular/core';
+import { HttpClient } from '@angular/common/http';
 
 @Injectable({
   providedIn: 'root',
 })
 export class UsersService {
-  users: UserInterface[] = [
-    {
-      id: 1,
-      name: 'Luigi',
-      lastName: 'Volpe',
-      age: 30,
-      mail: 'luigivolpe00@gmail.com',
-      location: 'Triggiano',
-      price: 975,
-    },
-    {
-      id: 2,
-      name: 'Valeria',
-      lastName: 'Marzocolli',
-      age: 26,
-      mail: 'rosymarzy@mail.it',
-      location: 'Capurso',
-      price: 350,
-    },
-    {
-      id: 3,
-      name: 'Maria',
-      lastName: 'Bianchi',
-      age: 20,
-      mail: 'maria@mail.it',
-      location: 'Bari',
-      price: 150,
-    },
-  ];
 
-  constructor() {}
+  apiUsers = 'http://localhost:3000/users'
+
+  constructor(private http:HttpClient) {}
 
   getUsers() {
-    return this.users;
+    return this.http.get(this.apiUsers)
+  }
+
+  getUser(id:string){
+    return this.http.get(this.apiUsers + '/' + id)
   }
 
   deleteUser(user: UserInterface) {
-    let index = this.users.indexOf(user);
-    if (index != -1) {
-      this.users.splice(index, 1);
-    }
+    return this.http.delete(this.apiUsers + '/' + user.id)
   }
 
   updateUser(user:UserInterface){
-    const idx = this.users.findIndex(user => user.id == user.id);
-    if(idx){
-      this.users[idx] = user
-    }
+    return this.http.put(this.apiUsers + '/' + user.id , user)
   }
 
   newUser(user:UserInterface){
-    this.users.splice(0,0,user)
+    return this.http.post(this.apiUsers , user)
   }
 }

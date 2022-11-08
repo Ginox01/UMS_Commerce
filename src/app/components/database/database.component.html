@@ -14,8 +14,7 @@
     <tr
       app-user-detail
       [get-user]="user"
-      (send-delete-user)="sendDeleteUser($event)"
-      (pass-update-user)="passUpdateUser($event)"
+      id="{{user.id}}"
     ></tr>
   </tbody>
 </table>
