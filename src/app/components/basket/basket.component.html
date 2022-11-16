@@ -1,1 +1,38 @@
-<p>basket works!</p>
+<div *ngIf="total == 0">
+    <h2 class="text-danger">The basket is empty 😥</h2>
+</div>
+
+<div *ngIf="total > 0">
+
+  <div class="table-responsive text-center">
+    <table class="table table-dark table-striped">
+      <thead>
+        <tr>
+          <th>NAME</th>
+          <th>LAST NAME</th>
+          <th>PRICE</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let item of items" >
+          <td>{{item.name}}</td>
+          <td>{{item.lastName}}</td>
+          <td>{{item.price}}</td>
+        </tr>
+        <tr>
+          <th colspan="2">TOTALE</th>
+          <th class="table-danger">{{total}}</th>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+  <div class="row d-flex justify-content-between">
+    <div class="col-4">
+      <button class="btn btn-outline-danger">RETURN</button>
+    </div>
+    <div class="col-8 text-center">
+      <button class="btn btn-danger" (click)="thankYou()">BUY</button>
+    </div>
+  </div>
+
+</div>

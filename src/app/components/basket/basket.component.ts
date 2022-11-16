@@ -20,4 +20,12 @@ export class BasketComponent implements OnInit {
     this.total = this.serviceBasket.getTotal();
   }
 
+  thankYou(){
+    alert('Thank you for your purchase!');
+    alert('The total is ' + this.total + ',00€');
+    this.serviceBasket.clearBasket();
+    this.total = 0;
+    this.route.navigateByUrl('/')
+  }
+
 }

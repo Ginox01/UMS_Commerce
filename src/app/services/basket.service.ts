@@ -24,7 +24,7 @@ export class BasketService {
   }
 
   getTotal(){
-    return this.items.map(item => item.price).reduce((prev,curr)=>prev + curr , 0)
+    return this.items.map(item => item.price).reduce((prev,curr)=>Number(prev) + Number(curr) , 0)
   }
 
 }

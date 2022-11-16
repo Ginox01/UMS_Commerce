@@ -2,30 +2,30 @@
   "users": [
     {
       "id": 1,
-      "name": "Luigi",
-      "lastName": "Volpe",
-      "age": 30,
-      "mail": "luigivolpe00@gmail.com",
-      "location": "Triggiano",
-      "price": 975
+      "name": "Mario",
+      "lastName": "Rossi",
+      "age": "30",
+      "mail": "mariorossi@mail.it",
+      "location": "Bari",
+      "price": "540"
     },
     {
       "name": "Giorgia",
-      "lastName": "Ceresetti",
+      "lastName": "Mirizzi",
       "age": "26",
       "mail": "giorgia@mail.it",
-      "location": "Triggiano",
-      "price": "420",
+      "location": "Catania",
+      "price": "615",
       "id": 4
     },
     {
       "id": 5,
       "name": "Letizia",
-      "lastName": "De Gennaro",
-      "age": "28",
-      "mail": "leti@mail.it",
+      "lastName": "Giordano",
+      "age": "22",
+      "mail": "letizia@mail.it",
       "location": "Milano",
-      "price": "100"
+      "price": "250"
     }
   ]
 }

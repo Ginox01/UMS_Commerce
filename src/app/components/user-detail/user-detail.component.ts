@@ -1,3 +1,4 @@
+import { BasketService } from './../../services/basket.service';
 import { UsersService } from './../../services/users.service';
 import { UserInterface } from './../../interfaces/user-interface';
 import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
@@ -22,7 +23,7 @@ export class UserDetailComponent implements OnInit {
   faPen = faPen;
   faMoney = faMoneyBill1;
 
-  constructor(private service:UsersService, private route:Router) {}
+  constructor(private service:UsersService, private route:Router , private serviceBasket:BasketService) {}
 
   ngOnInit(): void {}
 
@@ -36,6 +37,11 @@ export class UserDetailComponent implements OnInit {
 
   goToForm(){
     this.route.navigateByUrl('home/' + String(this.user.id) + '/edit')
+  }
+
+  addToBasket(){
+    alert('The user has been added to basket!')
+    this.serviceBasket.addItems(this.user)
   }
 
 }
