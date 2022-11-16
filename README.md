@@ -2,26 +2,29 @@
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 14.0.5.
 
+#Before testing the App
+For testing the app you need to install the packages , run `npm install` to install all the packages
+
+##Database with json-server
+This App works with the json-server database , you need to run the following code to turn on the database `json-server --watch db.json`.
+
 ## Development server
 
 Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
-
-## Code scaffolding
-
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
 
 ## Build
 
 Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
 
-## Running unit tests
+##How it works
+You can manage the users from the database , you can see the table with the users , in the actions column , you have three buttons :
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+Button red : delete user
+Button green : Update the user
+Button blue : Add to cart the user
+if you click on the update button or in the link "NEW USER" in the Navbar , you will come redirect in the form for update or create the user.
 
-## Running end-to-end tests
+By clickking the blue button , you will add an user in the basket , you can notice that the basket page will have the user with its price.
 
-Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.
+You can add as many as users you want in the basket page. 
 
-## Further help
-
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
