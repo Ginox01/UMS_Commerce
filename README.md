@@ -19,12 +19,14 @@ Run `ng build` to build the project. The build artifacts will be stored in the `
 ## How it works
 You can manage the users from the database , you can see the table with the users , in the actions column , you have three buttons :
 
-Button red : delete user
-Button green : Update the user
-Button blue : Add to cart the user
-if you click on the update button or in the link "NEW USER" in the Navbar , you will come redirect in the form for update or create the user.
++ Button red : delete user
++ Button green : Update the user
++ Button blue : Add to cart the user
 
-By clickking the blue button , you will add an user in the basket , you can notice that the basket page will have the user with its price.
+
+If you click on the update button or in the link "NEW USER" in the Navbar , you will come redirect in the form for update or create the user.
+
+By clicking the blue button , you will add an user in the basket , you can notice that the basket page will have the user with its price.
 
 You can add as many as users you want in the basket page. 
 
